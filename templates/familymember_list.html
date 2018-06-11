@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container">
+    {% for family in list_family  %}
+      <ul>
+        <li>
+          {{ family.first_name }} {{ family.last_name }}
+          <a href="{% url 'cbv:family_update' family.id %}">Update</a>
+          <a href="{% url 'cbv:family_delete' family.id %}">Delete</a>
+        </li>
+      </ul>
+    {% endfor %}
+
+    <a href="{% url 'cbv:family_create' %}">Create New</a>
+
+  </div>
+{% endblock %}
